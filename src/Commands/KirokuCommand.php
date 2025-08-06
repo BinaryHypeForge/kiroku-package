@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace BinaryHype\Kiroku\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class KirokuCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'kiroku';
 
     public $description = 'My command';
 

@@ -20,6 +20,7 @@ class SendExceptionToAPI
                     'line' => $exception->getLine(),
                     'trace' => $exception->getTrace(),
                     'app' => config('app.name'),
+                    'url' => config('app.url'),
                     'environment' => config('app.env'),
                     'timestamp' => now()->toDateTimeString(),
                 ]);

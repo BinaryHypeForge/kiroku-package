@@ -14,6 +14,9 @@ class KirokuCommand extends Command
     {
         $this->comment('All done');
 
+        throw new \Exception('This is a test exception from Kiroku command');
+
+
         return self::SUCCESS;
     }
 }

@@ -4,7 +4,7 @@ namespace BinaryHype\Kiroku;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use BinaryHype\Kiroku\Commands\KirokuCommand;
+use BinaryHype\Kiroku\Commands\KirokuTestCommand;
 
 class KirokuServiceProvider extends PackageServiceProvider
 {
@@ -18,8 +18,8 @@ class KirokuServiceProvider extends PackageServiceProvider
         $package
             ->name('kiroku')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_kiroku_table')
-            ->hasCommand(KirokuCommand::class);
+//            ->hasViews()
+//            ->hasMigration('create_kiroku_table')
+            ->hasCommand(KirokuTestCommand::class);
     }
 }

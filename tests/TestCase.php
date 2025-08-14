@@ -4,9 +4,6 @@ namespace BinaryHype\Kiroku\Tests;
 
 use BinaryHype\Kiroku\KirokuServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -15,26 +12,21 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-//        config()->set('login-link.user_model', User::class);
-//        config()->set('login-link.allowed_environments', ['testing']);
-
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Spatie\\LoginLink\\Tests\\TestSupport\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn(string $modelName) => 'Spatie\\LoginLink\\Tests\\TestSupport\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             KirokuServiceProvider::class,
         ];
     }
 
-    public function getEnvironmentSetUp($app)
+    public function getEnvironmentSetUp($app): void
     {
-        $this
-            ->setUpDatabase()
-            ->setupRoutes();
+        $this->setUpDatabase();
     }
 
     protected function setUpDatabase(): self
@@ -42,43 +34,6 @@ class TestCase extends Orchestra
         config()->set('database.default', 'testing');
 
         config()->set('app.key', 'base64:LjpSHzPr1BBeuRWrlUcN2n2OWZ36o8+VpTLZdHcdG7Q=');
-
-//        Schema::create('users', function (Blueprint $table) {
-//            $table->id();
-//            $table->string('name');
-//            $table->string('email');
-//            $table->string('password');
-//            $table->string('role');
-//
-//            $table->timestamps();
-//        });
-//
-//        Schema::create('admins', function (Blueprint $table) {
-//            $table->id();
-//            $table->string('name');
-//            $table->string('email');
-//            $table->string('password');
-//            $table->string('role');
-//
-//            $table->timestamps();
-//        });
-//
-//        Schema::create('customers', function (Blueprint $table) {
-//            $table->id();
-//            $table->string('name');
-//            $table->string('email');
-//            $table->string('password');
-//
-//            $table->timestamps();
-//        });
-
-        return $this;
-    }
-
-    protected function setupRoutes(): self
-    {
-//        Route::get('/', fn () => 'this is the home page');
-//        Route::get('custom-url', fn () => 'custom page')->name('customUrlRouteName');
 
         return $this;
     }
